@@ -2,7 +2,7 @@ class Hex3D {
   constructor(doorIn, doorOut, type) {
     this.radius = Settings.radius;
     this.container = new THREE.Object3D();
-    this.material = Settings.material1;
+    this.material = Settings.wallMaterial;
     this.doorIn = doorIn;
     this.doorOut = doorOut;
     this.type = type;
@@ -24,12 +24,8 @@ class Hex3D {
   }
 
   appendWalls() {
-    let geometry = new THREE.BoxGeometry(
-      1.2 * this.radius,
-      0.85 * this.radius,
-      0.1 * this.radius
-    );
-    let wall = new THREE.Mesh(geometry, this.material);
+
+    let wall = new THREE.Mesh(Settings.wallGeometry, this.material);
 
     for (let i = 0; i < 6; i++) {
       let side = null;
@@ -70,8 +66,8 @@ class Hex3D {
     );
     let cylinder = new THREE.Mesh(geometry, this.material);
 
-    cylinder.rotation.y = Math.PI / 6;
     cylinder.position.y = 0;
+    cylinder.rotation.y = Math.PI / 6;
 
     this.container.add(cylinder);
   }

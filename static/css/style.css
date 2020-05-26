@@ -51,9 +51,7 @@ h1 {
     background-color: lightgray;
     height: 100vh;
     width: 15em;
-    overflow-x: wrap;
     overflow-y: scroll;
     float: left;
     margin-right: 5px;
-
 }

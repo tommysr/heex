@@ -17,19 +17,19 @@ let database = new NeDB({
 })
 
 
-app.get('/', (req, res) => {
+app.get('/', function(req, res) {
     res.redirect('/editor')
 })
 
-app.get('/editor', (req, res) => {
+app.get('/editor', function(req, res) {
     res.sendFile(path.join(__dirname, 'static', 'editor.html'))
 })
 
-app.get('/hex', (req, res) => {
+app.get('/hex', function(req, res) {
     res.sendFile(path.join(__dirname, 'static', 'hex.html'))
 })
 
-app.get('/game', (req, res) => {
+app.get('/game', function(req, res) {
     res.sendFile(path.join(__dirname, 'static', 'game.html'))
 })
 
@@ -42,7 +42,7 @@ app.post('/send', (req, res) => {
     res.send('zapisano')
 })
 
-app.post('/get', (req, res) => {
+app.post('/get', function(req, res) {
     database.findOne({level: req.body.name}, (err, doc) => {
         if(err)
             console.error(err)
@@ -51,4 +51,6 @@ app.post('/get', (req, res) => {
     })
 })
 
-app.listen(port, () => console.log('Hexy działają na porcie: ' + port + '!'));
+app.listen(port,  function(){
+    console.log('Hexy działają na porcie: ' + port + '!')
+})
