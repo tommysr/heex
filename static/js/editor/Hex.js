@@ -114,17 +114,23 @@ class Hex{
 
     click(){
         if(editor.activeType != this.type){
-            this.type = type
+            this.type = editor.activeType
             this.active = true
+            this.show()
             editor.updateJSON()
         }
 
+        this.dir = (this.dir + 1) % 6
+        this.show()
+    }
+
+
+    show(){        
+        
         let arrow = $('<div></div>')
         arrow.addClass('arrow')
-
-        this.dir = (this.dir + 1) % 6
-
         arrow.text(this.dir)
+
         arrow.css('transform', 'rotate('+ this.dir * 60 +'deg)')
     
         this.div.html('')

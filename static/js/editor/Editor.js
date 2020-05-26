@@ -118,16 +118,16 @@ class Editor{
         for(let i of data.hexes){
             let hex = this.getHexById(i.id) 
 
-            if(i.dirIn)
-                for(let j = 0; j < i.dirIn; j++)
+            if(i.dirOut)
+                for(let j = 0; j < i.dirOut; j++)
                     hex.div.click()
             
+                    
             hex.type = i.type
-            hex.active = true
+            hex.show()
             this.updateJSON()
         }
 
         this.updateJSON()
     }
-
 }
