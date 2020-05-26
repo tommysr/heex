@@ -122,7 +122,9 @@ class Editor{
                 for(let j = 0; j < i.dirIn; j++)
                     hex.div.click()
             
-            hex.changeType(i.type)
+            hex.type = i.type
+            hex.active = true
+            this.updateJSON()
         }
 
         this.updateJSON()

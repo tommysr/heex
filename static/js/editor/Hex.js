@@ -13,13 +13,6 @@ class Hex{
     }
 
 
-    changeType(type){
-        this.type = type
-        console.log(type)
-        this.triggerUpdate()
-    }
-
-
     getEntrance(x = this.x, y = this.y, max = this.size - 1){
 
         let doors = []
@@ -120,14 +113,12 @@ class Hex{
 
 
     click(){
-        if(editor.activeType != this.type)
-            this.changeType(editor.activeType)
+        if(editor.activeType != this.type){
+            this.type = type
+            this.active = true
+            editor.updateJSON()
+        }
 
-        this.rotate()
-    }
-
-
-    rotate() {
         let arrow = $('<div></div>')
         arrow.addClass('arrow')
 
@@ -138,11 +129,6 @@ class Hex{
     
         this.div.html('')
         arrow.appendTo(this.div)
-        this.triggerUpdate()
-    }
-
-
-    triggerUpdate(){
         this.active = true
         editor.updateJSON()
     }
