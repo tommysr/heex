@@ -33,13 +33,6 @@ app.get('/game', (req, res) => {
     res.sendFile(path.join(__dirname, 'static', 'game.html'))
 })
 
-app.get('/player', (req, res) => {
-    res.sendFile(path.join(__dirname, 'static', 'player.html'))
-})
-
-
-
-
 app.post('/send', (req, res) => {
 
     database.update({level: req.body.name}, { $set: { hexes: req.body.level, size: req.body.size }}, {upsert: true})
