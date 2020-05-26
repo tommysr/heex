@@ -34,32 +34,38 @@ class Level3D {
     let radius = Settings.radius;
 
     for (let i = 0; i < data.hexes.length; i++) {
+      var result = data.hexes[i].dirIn.map(function (x) { 
+        return parseInt(x, 10); 
+      });
+
       let hex_new = new Hex3D(
-        data.hexes[i].dirIn,
-        data.hexes[i].dirOut,
-        data.hexes[i].type
+        result, data.hexes[i].type
       );
 
       let hex = hex_new.getContainer();
 
+
       hex.position.x = (data.hexes[i].x * radius * 344) / 200;
       if (data.hexes[i].x % 2 == 0) {
-        hex.position.z = -((data.hexes[i].z * 400 * radius) / 200);
+        hex.position.z = -((data.hexes[i].y * 400 * radius) / 200);
       } else {
-        hex.position.z = -((data.hexes[i].z * 400 * radius) / 200 + radius);
+        hex.position.z = -((data.hexes[i].y * 400 * radius) / 200 + radius);
       }
 
       if(hex_new.getLight()!=undefined)
       this.lights.push(hex_new.getLight());
       this.level.add(hex);
+
     }
 
     var start = {
       x: (this.data.hexes[0].x * radius * 344) / 200,
-      y: -((this.data.hexes[0].z * 400 * radius) / 200),
+      y: -((this.data.hexes[0].y * 400 * radius) / 200),
     };
 
     this.level.position.set(-start.x, 0, -start.y);
     this.scene.add(this.level);
+
+    console.log(this.level.position)
   }
 }

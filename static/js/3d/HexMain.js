@@ -31,7 +31,7 @@ $(document).ready(function () {
   plane.rotateX(Math.PI / 2);
   scene.add(plane);
 
-  var hex = new Hex3D(0, 1, "light");
+  var hex = new Hex3D([0,1], "light");
   scene.add(hex.getContainer());
 
   var orbitControl = new THREE.OrbitControls(camera, renderer.domElement);
