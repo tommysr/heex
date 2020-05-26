@@ -1,10 +1,9 @@
 class Hex3D {
-  constructor(doorIn, doorOut, type) {
+  constructor(doorIn, type) {
     this.radius = Settings.radius;
     this.container = new THREE.Object3D();
     this.material = Settings.wallMaterial;
     this.doorIn = doorIn;
-    this.doorOut = doorOut;
     this.type = type;
     this.appendWalls();
     this.appendFloor();
@@ -16,6 +15,7 @@ class Hex3D {
   }
 
   checkType(){
+    console.log(this.type)
     if(this.type == "light"){
       this.appendLight();
     }else if(this.type == "treasure"){
@@ -24,14 +24,10 @@ class Hex3D {
   }
 
   appendWalls() {
-
     let wall = new THREE.Mesh(Settings.wallGeometry, this.material);
-
     for (let i = 0; i < 6; i++) {
       let side = null;
-      if (i == this.doorOut) {
-        side = new Doors3D();
-      } else if (i == this.doorIn) {
+      if(this.doorIn.indexOf(i)!=-1){
         side = new Doors3D();
       } else {
         side = wall.clone();
