@@ -35,8 +35,6 @@ class Hex{
                 doors.push(3)
         }
 
-                
-
 
         if(x < max)
             if(x % 2){

@@ -6,8 +6,6 @@ class Editor{
         this.addListeners()
     }
 
-
-
     getHexById(id){
         for(let i of this.hexes)
             if(i.id == id)
@@ -64,7 +62,6 @@ class Editor{
         for(let i of this.hexes)
             if(i.active)
                 this.data.push(i.export())
-        
     }
 
 
@@ -111,7 +108,6 @@ class Editor{
             }
         })
     }
-
 
 
 

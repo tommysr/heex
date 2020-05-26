@@ -2,7 +2,7 @@ class Doors3D {
   constructor() {
     this.container = new THREE.Object3D();
     this.radius = Settings.radius;
-    this.material = Settings.material1;
+    this.material = Settings.wallMaterial;
     let geometry = new THREE.BoxGeometry(
       0.3 * this.radius,
       0.85 * this.radius,
