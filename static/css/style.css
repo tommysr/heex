@@ -34,13 +34,13 @@ h1 {
 .arrow {
     position: absolute;
     width: 116px;
+    color: white;
+    font-size: 30px;
+    line-height: 100px;
     height: 100px;
     background-image: url("/gfx/Arrow.png");
     background-size: cover;
     text-align: center;
-    color: white;
-    font-size: 30px;
-    line-height: 100px;
 }
 
 .marked {

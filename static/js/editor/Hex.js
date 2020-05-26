@@ -94,8 +94,8 @@ class Hex{
             id: this.id,
             x: this.x,
             y: this.y,
-            doors: this.getEntrance(),
-            dir: this.dir,
+            dirIn: this.getEntrance(),
+            dirOut: this.dir,
             type: this.type
         }
     }
