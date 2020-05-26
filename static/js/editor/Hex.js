@@ -36,23 +36,7 @@ class Hex{
         }
 
                 
-        if(x > 0)
-            if(x % 2){
-                if(this.getByCoords(x-1, y).dir == 2)
-                    doors.push(5)
 
-                if(y < max)
-                    if(this.getByCoords(x-1, y+1).dir == 1)
-                        doors.push(4)
-            }
-            else{
-                if(this.getByCoords(x-1, y).dir == 1)
-                    doors.push(4)
-
-                if(y > 0)
-                    if(this.getByCoords(x-1, y-1).dir == 2)
-                        doors.push(5)
-            }
 
         if(x < max)
             if(x % 2){
@@ -71,6 +55,25 @@ class Hex{
                     if(this.getByCoords(x+1, y-1).dir == 4)
                         doors.push(1)
             }
+            
+            
+        if(x > 0)
+            if(x % 2){
+                if(this.getByCoords(x-1, y).dir == 2)
+                    doors.push(5)
+
+                if(y < max)
+                    if(this.getByCoords(x-1, y+1).dir == 1)
+                        doors.push(4)
+            }
+            else{
+                if(this.getByCoords(x-1, y).dir == 1)
+                    doors.push(4)
+
+                if(y > 0)
+                    if(this.getByCoords(x-1, y-1).dir == 2)
+                        doors.push(5)
+            }
 
         if(!doors.includes(this.dir))
             doors.push(this.dir)
@@ -84,8 +87,6 @@ class Hex{
         for(let i of editor.hexes)
             if(i.x == x && i.y == y)
                 return i
-
-        throw 'no such hex'
     }
     
 

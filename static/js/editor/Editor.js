@@ -122,8 +122,8 @@ class Editor{
         for(let i of data.hexes){
             let hex = this.getHexById(i.id) 
 
-            if(i.dir)
-                for(let j = 0; j < i.dir; j++)
+            if(i.dirIn)
+                for(let j = 0; j < i.dirIn; j++)
                     hex.div.click()
             
             hex.changeType(i.type)
