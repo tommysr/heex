@@ -15,7 +15,7 @@
     "jquery": "^3.5.0",
     "nedb": "^1.8.0",
     "path": "^0.12.7",
-    "three": "^0.116.1"
+    "three": "^0.125.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
